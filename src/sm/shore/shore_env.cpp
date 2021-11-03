@@ -865,6 +865,7 @@ int ShoreEnv::start_sm()
         CRITICAL_SECTION(cs, _load_mutex);
 
         TRACE( TRACE_DEBUG, "Using device (%s)\n", device);
+        cout << "Using device " << device << endl;
 
         // mount it...
         W_COERCE(_pssm->mount_dev(device, _vol_cnt, _devid));
