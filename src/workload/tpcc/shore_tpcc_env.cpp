@@ -550,10 +550,12 @@ w_rc_t ShoreTPCCEnv::loaddata()
     }
 
     // 2. Fire up a checkpointer thread
+    cout << "start Checkpointer" << endl;
     guard<checkpointer_t> chk(new checkpointer_t(this));
     chk->fork();
 
     // 3. Fire up the loader threads
+    cout << "starting loaders" << endl;
     int loaders_to_use = envVar::instance()->getVarInt("db-loaders",10);
     array_guard_t< guard<table_builder_t> > loaders(new guard<table_builder_t>[loaders_to_use]);
     long total_units = _scaling_factor*UNIT_PER_WH;
@@ -562,13 +564,13 @@ w_rc_t ShoreTPCCEnv::loaddata()
     long units_per_thread = (total_units + loaders_to_use-1)/loaders_to_use;
     long divisor = ORDERS_PER_DIST/ORDERS_PER_UNIT;
     units_per_thread = ((units_per_thread + divisor-1)/divisor)*divisor;
-
     for(int i=0; i < loaders_to_use; i++) {
-	long start = i*units_per_thread;
-	long count = (start+units_per_thread > total_units)? total_units-start : units_per_thread;
-	loaders[i] = new table_builder_t(this, i, start, count, cid_array);
-	loaders[i]->fork();
+        long start = i*units_per_thread;
+        long count = (start+units_per_thread > total_units)? total_units-start : units_per_thread;
+        loaders[i] = new table_builder_t(this, i, start, count, cid_array);
+        loaders[i]->fork();
     }
+    cout << "joining loaders" << endl;
 
     for(int i=0; i < loaders_to_use; i++) {
 	loaders[i]->join();
@@ -577,7 +579,7 @@ w_rc_t ShoreTPCCEnv::loaddata()
     time_t tstop = time(NULL);
 
     // 4. Print stats
-    TRACE( TRACE_STATISTICS, "Loading finished. %d table loaded in (%d) secs...\n",
+    TRACE( TRACE_ALWAYS, "Loading finished. %d table loaded in (%d) secs...\n",
            SHORE_TPCC_TABLES, (tstop - tstart));
 
     // 5. notify that the env is loaded
