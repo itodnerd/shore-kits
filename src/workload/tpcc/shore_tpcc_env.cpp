@@ -570,10 +570,11 @@ w_rc_t ShoreTPCCEnv::loaddata()
         loaders[i] = new table_builder_t(this, i, start, count, cid_array);
         loaders[i]->fork();
     }
-    cout << "joining loaders" << endl;
+    cout << "joining loaders: " << loaders_to_use << endl;
 
     for(int i=0; i < loaders_to_use; i++) {
-	loaders[i]->join();
+        loaders[i]->join();
+        cout << "joined loader " << i << endl;
     }
 
     time_t tstop = time(NULL);
