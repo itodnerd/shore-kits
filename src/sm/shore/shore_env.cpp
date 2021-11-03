@@ -865,8 +865,6 @@ int ShoreEnv::start_sm()
         CRITICAL_SECTION(cs, _load_mutex);
 
         TRACE( TRACE_DEBUG, "Using device (%s)\n", device);
-        cout << "Using device " << device << endl;
-
         // mount it...
         W_COERCE(_pssm->mount_dev(device, _vol_cnt, _devid));
         TRACE( TRACE_DEBUG, 
@@ -1081,7 +1079,6 @@ void ShoreEnv::readconfig()
         tmp = ev->getVar(configsuf + "-" + SHORE_DB_SM_OPTIONS[i][1],SHORE_DB_SM_OPTIONS[i][2]);
         _sm_opts[SHORE_DB_SM_OPTIONS[i][0]] = tmp;
         if(i==1){
-            cout << tmp << endl;
             system(("mkdir -p " + tmp).c_str());
         }
     }    

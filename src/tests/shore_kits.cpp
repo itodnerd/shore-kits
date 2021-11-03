@@ -872,6 +872,7 @@ int main(int argc, char* argv[])
     }
 
     // Make sure data is loaded
+    TRACE ( TRACE_ALWAYS, "Load Data\n" );
     w_rc_t rcl = kit->db()->loaddata();
     if (rcl.is_error()) {
         return (7);
