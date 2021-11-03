@@ -34,7 +34,7 @@
 #include "sm/shore/shore_trx_worker.h"
 #include "sm/shore/shore_flusher.h"
 #include "sm/shore/shore_helper_loader.h"
-
+#include <boost/filesystem.hpp>
 
 ENTER_NAMESPACE(shore);
 
@@ -770,21 +770,21 @@ int ShoreEnv::configure_sm()
 
     // configure
     if (rc.is_error()) {
-	cerr << "Error configuring Shore: " << endl;
-	cerr << "\t" << w_error_t::error_string(rc.err_num()) << endl;
-	cerr << "\t" << err.c_str() << endl;
-	usage(*_popts);
-        return (1);
+        cerr << "Error configuring Shore: " << endl;
+        cerr << "\t" << w_error_t::error_string(rc.err_num()) << endl;
+        cerr << "\t" << err.c_str() << endl;
+        usage(*_popts);
+            return (1);
     }
 
     // verify 
     w_reset_strstream(err);
     rc = _popts->check_required(&err);
     if (rc.is_error()) {
-	cerr << "These required options are not set:" << endl;
-	cerr << err.c_str() << endl;
-	usage(*_popts);
-        return (2);
+        cerr << "These required options are not set:" << endl;
+        cerr << err.c_str() << endl;
+        usage(*_popts);
+            return (2);
     }
 
     upd_sf();
@@ -1080,6 +1080,10 @@ void ShoreEnv::readconfig()
     for (i=0; i<SHORE_NUM_DB_SM_OPTIONS; i++) {
         tmp = ev->getVar(configsuf + "-" + SHORE_DB_SM_OPTIONS[i][1],SHORE_DB_SM_OPTIONS[i][2]);
         _sm_opts[SHORE_DB_SM_OPTIONS[i][0]] = tmp;
+        if(i==1){
+            boost::filesystem::create_directories(tmp);
+            cout << tmp << cend;
+        }
     }    
 
     // Parse DB-specific parameters
