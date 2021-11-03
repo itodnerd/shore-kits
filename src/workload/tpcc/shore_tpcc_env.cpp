@@ -187,8 +187,10 @@ void ShoreTPCCEnv::table_builder_t::work()
 
     //int last_wh = 1;
     for(int i=0 ; i < _count; i++) {
-	while(_env->get_measure() != MST_MEASURE)
+	while(_env->get_measure() != MST_MEASURE){
 	    usleep(10000);
+        cout << "waiting for mst_measutre" << endl;
+    }
 	
 	long tid = _start + i;
 	//int my_dist = tid/UNIT_PER_DIST;
