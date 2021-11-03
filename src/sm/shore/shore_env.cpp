@@ -34,7 +34,6 @@
 #include "sm/shore/shore_trx_worker.h"
 #include "sm/shore/shore_flusher.h"
 #include "sm/shore/shore_helper_loader.h"
-#include <boost/filesystem.hpp>
 
 ENTER_NAMESPACE(shore);
 
@@ -1081,8 +1080,8 @@ void ShoreEnv::readconfig()
         tmp = ev->getVar(configsuf + "-" + SHORE_DB_SM_OPTIONS[i][1],SHORE_DB_SM_OPTIONS[i][2]);
         _sm_opts[SHORE_DB_SM_OPTIONS[i][0]] = tmp;
         if(i==1){
-            boost::filesystem::create_directories(tmp);
-            cout << tmp << cend;
+            cout << tmp << endl;
+            system(("mkdir -p " + tmp).c_str());
         }
     }    
 
