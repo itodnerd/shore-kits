@@ -540,9 +540,12 @@ int shore_shell_t::process_cmd_TEST(const char* command)
 
 
     // call the virtual function that implements the test    
-    return (_cmd_TEST_impl(numOfQueriedSF, spreadThreads, numOfThreads,
+    _env->db()->enable_tracing();
+    int returner = _cmd_TEST_impl(numOfQueriedSF, spreadThreads, numOfThreads,
                            numOfTrxs, selectedTrxID, iterations, 
-                           eBindingType(binding)));
+                           eBindingType(binding));
+    _env->db()->disable_tracing();
+    return returner;
 }
 
 
