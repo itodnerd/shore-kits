@@ -1247,8 +1247,7 @@ w_rc_t ShoreTPCEEnv::_load_one_trade_request(rep_row_t& areprow,
 }
 
 //populating small tables
-w_rc_t ShoreTPCEEnv::xct_populate_small(const int xct_id,
-					populate_small_input_t& ptoin)
+w_rc_t ShoreTPCEEnv::xct_populate_small()
 {
     // ensure a valid environment
     assert (_pssm);
@@ -1327,8 +1326,7 @@ w_rc_t ShoreTPCEEnv::xct_populate_small(const int xct_id,
 }
 
 //customer
-w_rc_t ShoreTPCEEnv::xct_populate_customer(const int xct_id,
-					   populate_customer_input_t& ptoin)
+w_rc_t ShoreTPCEEnv::xct_populate_customer()
 {
     assert (_pssm);
     assert (_initialized);
@@ -1353,10 +1351,9 @@ void ShoreTPCEEnv::populate_customer()
 	long log_space_needed = 0;
 	customerBuffer.reset();
 	_read_customer();
-	populate_customer_input_t in;
     retry:
 	W_COERCE(this->db()->begin_xct());
-	CHECK_XCT_RETURN(this->xct_populate_customer(1, in),
+	CHECK_XCT_RETURN(this->xct_populate_customer(),
 			 log_space_needed, retry, this);
     }
     pGenerateAndLoad->ReleaseCustomer();
@@ -1364,8 +1361,7 @@ void ShoreTPCEEnv::populate_customer()
 }
 
 //address
-w_rc_t ShoreTPCEEnv::xct_populate_address(const int xct_id,
-					  populate_address_input_t& ptoin)
+w_rc_t ShoreTPCEEnv::xct_populate_address()
 {
     assert (_pssm);
     assert (_initialized);
@@ -1390,10 +1386,9 @@ void ShoreTPCEEnv::populate_address()
 	long log_space_needed = 0;
 	addressBuffer.reset();
 	_read_address();
-	populate_address_input_t in;
     retry:
 	W_COERCE(this->db()->begin_xct());
-	CHECK_XCT_RETURN(this->xct_populate_address(1, in),
+	CHECK_XCT_RETURN(this->xct_populate_address(),
 			 log_space_needed, retry, this);
     }
     pGenerateAndLoad->ReleaseAddress();
@@ -1401,8 +1396,7 @@ void ShoreTPCEEnv::populate_address()
 }
 
 //CustomerAccount and AccountPermission
-w_rc_t ShoreTPCEEnv::xct_populate_ca_and_ap(const int xct_id,
-					    populate_ca_and_ap_input_t& ptoin)
+w_rc_t ShoreTPCEEnv::xct_populate_ca_and_ap()
 {
     assert (_pssm);
     assert (_initialized);
@@ -1433,10 +1427,9 @@ void ShoreTPCEEnv::populate_ca_and_ap()
 	customerAccountBuffer.reset();
 	accountPermissionBuffer.reset();
 	_read_ca_and_ap();
-	populate_ca_and_ap_input_t in;
     retry:
 	W_COERCE(this->db()->begin_xct());
-	CHECK_XCT_RETURN(this->xct_populate_ca_and_ap(1, in),
+	CHECK_XCT_RETURN(this->xct_populate_ca_and_ap(),
 			 log_space_needed, retry, this);
     }
     pGenerateAndLoad->ReleaseCustomerAccountAndAccountPermission();
@@ -1445,8 +1438,7 @@ void ShoreTPCEEnv::populate_ca_and_ap()
 }
 
 //Watch List and Watch Item
-w_rc_t ShoreTPCEEnv::xct_populate_wl_and_wi(const int xct_id,
-					    populate_wl_and_wi_input_t& ptoin)
+w_rc_t ShoreTPCEEnv::xct_populate_wl_and_wi()
 {
     assert (_pssm);
     assert (_initialized);
@@ -1477,10 +1469,9 @@ void ShoreTPCEEnv::populate_wl_and_wi()
 	watchItemBuffer.reset();
 	watchListBuffer.reset();
 	_read_wl_and_wi();
-	populate_wl_and_wi_input_t in;
     retry:
 	W_COERCE(this->db()->begin_xct());
-	CHECK_XCT_RETURN(this->xct_populate_wl_and_wi(1, in),
+	CHECK_XCT_RETURN(this->xct_populate_wl_and_wi(),
 			 log_space_needed, retry, this);
     }
     pGenerateAndLoad->ReleaseWatchListAndWatchItem();
@@ -1489,8 +1480,7 @@ void ShoreTPCEEnv::populate_wl_and_wi()
 }
 
 //CUSTOMER_TAXRATE
-w_rc_t ShoreTPCEEnv::xct_populate_customer_taxrate(const int xct_id,
-						   populate_customer_taxrate_input_t& ptoin)
+w_rc_t ShoreTPCEEnv::xct_populate_customer_taxrate()
 {
     assert (_pssm);
     assert (_initialized);
@@ -1515,10 +1505,9 @@ void ShoreTPCEEnv::populate_customer_taxrate()
 	long log_space_needed = 0;
 	customerTaxrateBuffer.reset();
 	_read_customer_taxrate();
-	populate_customer_taxrate_input_t in;
     retry:
 	W_COERCE(this->db()->begin_xct());
-	CHECK_XCT_RETURN(this->xct_populate_customer_taxrate(1, in),
+	CHECK_XCT_RETURN(this->xct_populate_customer_taxrate(),
 			 log_space_needed, retry, this);
     }
     pGenerateAndLoad->ReleaseCustomerTaxrate();
@@ -1526,8 +1515,7 @@ void ShoreTPCEEnv::populate_customer_taxrate()
 }
 
 //COMPANY
-w_rc_t ShoreTPCEEnv::xct_populate_company(const int xct_id,
-					  populate_company_input_t& ptoin)
+w_rc_t ShoreTPCEEnv::xct_populate_company()
 {
     assert (_pssm);
     assert (_initialized);
@@ -1552,10 +1540,9 @@ void ShoreTPCEEnv::populate_company()
 	long log_space_needed = 0;
 	companyBuffer.reset();
 	_read_company();
-	populate_company_input_t in;
     retry:
 	W_COERCE(this->db()->begin_xct());
-	CHECK_XCT_RETURN(this->xct_populate_company(1, in),
+	CHECK_XCT_RETURN(this->xct_populate_company(),
 			 log_space_needed, retry, this);
     }
     pGenerateAndLoad->ReleaseCompany();
@@ -1563,8 +1550,7 @@ void ShoreTPCEEnv::populate_company()
 }
 
 //COMPANY COMPETITOR
-w_rc_t ShoreTPCEEnv::xct_populate_company_competitor(const int xct_id,
-						     populate_company_competitor_input_t& ptoin)
+w_rc_t ShoreTPCEEnv::xct_populate_company_competitor()
 {
     assert (_pssm);
     assert (_initialized);
@@ -1589,10 +1575,9 @@ void ShoreTPCEEnv::populate_company_competitor()
 	long log_space_needed = 0;
 	companyCompetitorBuffer.reset();
 	_read_company_competitor();
-	populate_company_competitor_input_t in;
     retry:
 	W_COERCE(this->db()->begin_xct());
-	CHECK_XCT_RETURN(this->xct_populate_company_competitor(1, in),
+	CHECK_XCT_RETURN(this->xct_populate_company_competitor(),
 			 log_space_needed, retry, this);
     }
     pGenerateAndLoad->ReleaseCompanyCompetitor();
@@ -1600,8 +1585,7 @@ void ShoreTPCEEnv::populate_company_competitor()
 }
 
 //COMPANY
-w_rc_t ShoreTPCEEnv::xct_populate_daily_market(const int xct_id,
-					       populate_daily_market_input_t& ptoin)
+w_rc_t ShoreTPCEEnv::xct_populate_daily_market()
 {
     assert (_pssm);
     assert (_initialized);
@@ -1626,10 +1610,9 @@ void ShoreTPCEEnv::populate_daily_market()
 	long log_space_needed = 0;
 	dailyMarketBuffer.reset();
 	_read_daily_market();
-	populate_daily_market_input_t in;
     retry:
 	W_COERCE(this->db()->begin_xct());
-	CHECK_XCT_RETURN(this->xct_populate_daily_market(1, in),
+	CHECK_XCT_RETURN(this->xct_populate_daily_market(),
 			 log_space_needed, retry, this);
     }
     pGenerateAndLoad->ReleaseDailyMarket();
@@ -1637,8 +1620,7 @@ void ShoreTPCEEnv::populate_daily_market()
 }
 
 //FINANCIAL
-w_rc_t ShoreTPCEEnv::xct_populate_financial(const int xct_id,
-					    populate_financial_input_t& ptoin)
+w_rc_t ShoreTPCEEnv::xct_populate_financial()
 {
     assert (_pssm);
     assert (_initialized);
@@ -1663,10 +1645,9 @@ void ShoreTPCEEnv::populate_financial()
 	long log_space_needed = 0;
 	financialBuffer.reset();
 	_read_financial();
-	populate_financial_input_t in;
     retry:
 	W_COERCE(this->db()->begin_xct());
-	CHECK_XCT_RETURN(this->xct_populate_financial(1, in),
+	CHECK_XCT_RETURN(this->xct_populate_financial(),
 			 log_space_needed, retry, this);
     }
     pGenerateAndLoad->ReleaseFinancial();
@@ -1674,8 +1655,7 @@ void ShoreTPCEEnv::populate_financial()
 }
 
 //SECURITY
-w_rc_t ShoreTPCEEnv::xct_populate_security(const int xct_id,
-					   populate_security_input_t& ptoin)
+w_rc_t ShoreTPCEEnv::xct_populate_security()
 {
     assert (_pssm);
     assert (_initialized);
@@ -1700,10 +1680,9 @@ void ShoreTPCEEnv::populate_security()
 	long log_space_needed = 0;
 	securityBuffer.reset();
 	_read_security();
-	populate_security_input_t in;
     retry:
 	W_COERCE(this->db()->begin_xct());	
-	CHECK_XCT_RETURN(this->xct_populate_security(1, in),
+	CHECK_XCT_RETURN(this->xct_populate_security(),
 			 log_space_needed, retry, this);
     }
     pGenerateAndLoad->ReleaseSecurity();
@@ -1711,8 +1690,7 @@ void ShoreTPCEEnv::populate_security()
 }
 
 //LAST_TRADE
-w_rc_t ShoreTPCEEnv::xct_populate_last_trade(const int xct_id,
-					     populate_last_trade_input_t& ptoin)
+w_rc_t ShoreTPCEEnv::xct_populate_last_trade()
 {
     assert (_pssm);
     assert (_initialized);
@@ -1737,10 +1715,9 @@ void ShoreTPCEEnv::populate_last_trade()
 	long log_space_needed = 0;
 	lastTradeBuffer.reset();
 	_read_last_trade();
-	populate_last_trade_input_t in;
     retry:
 	W_COERCE(this->db()->begin_xct());
-	CHECK_XCT_RETURN(this->xct_populate_last_trade(1, in),
+	CHECK_XCT_RETURN(this->xct_populate_last_trade(),
 			 log_space_needed, retry, this);
     }
     pGenerateAndLoad->ReleaseLastTrade();
@@ -1748,8 +1725,7 @@ void ShoreTPCEEnv::populate_last_trade()
 }
 
 //Watch List and Watch Item
-w_rc_t ShoreTPCEEnv::xct_populate_ni_and_nx(const int xct_id,
-					    populate_ni_and_nx_input_t& ptoin)
+w_rc_t ShoreTPCEEnv::xct_populate_ni_and_nx()
 {
     assert (_pssm);
     assert (_initialized);
@@ -1780,10 +1756,9 @@ void ShoreTPCEEnv::populate_ni_and_nx()
 	newsItemBuffer.reset();
 	newsXRefBuffer.reset();
 	_read_ni_and_nx();
-	populate_ni_and_nx_input_t in;
     retry:
 	W_COERCE(this->db()->begin_xct());
-	CHECK_XCT_RETURN(this->xct_populate_ni_and_nx(1, in),
+	CHECK_XCT_RETURN(this->xct_populate_ni_and_nx(),
 			 log_space_needed, retry, this);
     }
     pGenerateAndLoad->ReleaseNewsItemAndNewsXRef();
@@ -1792,8 +1767,7 @@ void ShoreTPCEEnv::populate_ni_and_nx()
 }
 
 //populating growing tables
-w_rc_t ShoreTPCEEnv::xct_populate_unit_trade(const int xct_id,
-					     populate_unit_trade_input_t& ptoin)
+w_rc_t ShoreTPCEEnv::xct_populate_unit_trade()
 {
     assert (_pssm);
     assert (_initialized);
@@ -1831,8 +1805,7 @@ w_rc_t ShoreTPCEEnv::xct_populate_unit_trade(const int xct_id,
 }
 
 //BROKER
-w_rc_t ShoreTPCEEnv::xct_populate_broker(const int xct_id,
-					 populate_broker_input_t& ptoin)
+w_rc_t ShoreTPCEEnv::xct_populate_broker()
 {
     assert (_pssm);
     assert (_initialized);
@@ -1855,17 +1828,15 @@ void ShoreTPCEEnv::populate_broker()
 	long log_space_needed = 0;
 	brokerBuffer.reset();
 	_read_broker();
-	populate_broker_input_t in;
     retry:
 	W_COERCE(this->db()->begin_xct());
-	CHECK_XCT_RETURN(this->xct_populate_broker(1, in),
+	CHECK_XCT_RETURN(this->xct_populate_broker(),
 			 log_space_needed, retry, this);
     }
 }
 
 //HOLDING_SUMMARY
-w_rc_t ShoreTPCEEnv::xct_populate_holding_summary(const int xct_id,
-						  populate_holding_summary_input_t& ptoin)
+w_rc_t ShoreTPCEEnv::xct_populate_holding_summary()
 {
     assert (_pssm);
     assert (_initialized);
@@ -1888,17 +1859,15 @@ void ShoreTPCEEnv::populate_holding_summary()
 	long log_space_needed = 0;
 	holdingSummaryBuffer.reset();
 	_read_holding_summary();
-	populate_holding_summary_input_t in;
     retry:
 	W_COERCE(this->db()->begin_xct());
-	CHECK_XCT_RETURN(this->xct_populate_holding_summary(1, in),
+	CHECK_XCT_RETURN(this->xct_populate_holding_summary(),
 			 log_space_needed, retry, this);
     }
 }
 
 //HOLDING
-w_rc_t ShoreTPCEEnv::xct_populate_holding(const int xct_id,
-					  populate_holding_input_t& ptoin)
+w_rc_t ShoreTPCEEnv::xct_populate_holding()
 {
     assert (_pssm);
     assert (_initialized);
@@ -1921,10 +1890,9 @@ void ShoreTPCEEnv::populate_holding()
 	long log_space_needed = 0;
 	holdingBuffer.reset();
 	_read_holding();
-	populate_holding_input_t in;
     retry:
 	W_COERCE(this->db()->begin_xct());
-	CHECK_XCT_RETURN(this->xct_populate_holding(1, in),
+	CHECK_XCT_RETURN(this->xct_populate_holding(),
 			 log_space_needed, retry, this);
     }
 }
@@ -1932,19 +1900,18 @@ void ShoreTPCEEnv::populate_holding()
 void ShoreTPCEEnv::populate_unit_trade()
 {
      while(tradeBuffer.hasMoreToRead()){
-	long log_space_needed = 0;
-	tradeBuffer.reset();
-	tradeHistoryBuffer.reset();
-	settlementBuffer.reset();
-	cashTransactionBuffer.reset();
-	holdingHistoryBuffer.reset();
-	_read_trade_unit();
-	printf("\n\n Populating trade unit\n\n" );
-	populate_unit_trade_input_t in;
-    retry:
-	W_COERCE(this->db()->begin_xct());
-	CHECK_XCT_RETURN(this->xct_populate_unit_trade(1, in),
-			 log_space_needed, retry, this);
+        long log_space_needed = 0;
+        tradeBuffer.reset();
+        tradeHistoryBuffer.reset();
+        settlementBuffer.reset();
+        cashTransactionBuffer.reset();
+        holdingHistoryBuffer.reset();
+        _read_trade_unit();
+        printf("\n\n Populating trade unit\n\n" );
+        retry:
+        W_COERCE(this->db()->begin_xct());
+        CHECK_XCT_RETURN(this->xct_populate_unit_trade(),
+                log_space_needed, retry, this);
     }
 }
 
@@ -1979,8 +1946,7 @@ void ShoreTPCEEnv::populate_growing()
     holdingBuffer.release();
 }
 
-w_rc_t ShoreTPCEEnv::xct_find_maxtrade_id(const int xct_id,
-					  find_maxtrade_id_input_t& ptoin)
+w_rc_t ShoreTPCEEnv::xct_find_maxtrade_id()
 {
     assert (_pssm);
 
@@ -2001,13 +1967,13 @@ w_rc_t ShoreTPCEEnv::xct_find_maxtrade_id(const int xct_id,
     guard<index_scan_iter_impl<trade_t> > t_iter;
     {
 	index_scan_iter_impl<trade_t>* tmp_t_iter;
-	TRACE( TRACE_TRX_FLOW, "App: %d TO:t-iter-by-caid-idx \n", xct_id);
+	TRACE( TRACE_TRX_FLOW, "App: TO:t-iter-by-caid-idx \n");
 	W_DO(_ptrade_man->t_get_iter_by_index(_pssm, tmp_t_iter, prtrade, lowrep,
 					      highrep, 0));
 	t_iter = tmp_t_iter;	  
     }
     bool eof;
-    TRACE( TRACE_TRX_FLOW, "App: %d TO:t-iter-next \n", xct_id);
+    TRACE( TRACE_TRX_FLOW, "App: TO:t-iter-next \n");
     W_DO(t_iter->next(_pssm, eof, *prtrade));
     while(!eof){	
 	prtrade->get_value(0, trade_id);
@@ -2020,11 +1986,10 @@ w_rc_t ShoreTPCEEnv::xct_find_maxtrade_id(const int xct_id,
 
 void ShoreTPCEEnv::find_maxtrade_id()
 {
-    find_maxtrade_id_input_t in;
     long log_space_needed = 0;
  retry:
     W_COERCE(this->db()->begin_xct());
-    CHECK_XCT_RETURN(this->xct_find_maxtrade_id(1, in),
+    CHECK_XCT_RETURN(this->xct_find_maxtrade_id(),
 		     log_space_needed, retry, this);
     printf("last trade id: %lld\n", lastTradeId);
 }
