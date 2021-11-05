@@ -76,16 +76,16 @@ const int SHORE_TPCH_TABLES = 8;
 /* --- TPC-H TRANSACTION MIX --- */
 /* ----------------------------- */
 
-const int XCT_TPCH_MIX      = 00;
-const int XCT_TPCH_Q1       = 01;
-const int XCT_TPCH_Q2       = 02;
-const int XCT_TPCH_Q3       = 03;
-const int XCT_TPCH_Q4       = 04;
-const int XCT_TPCH_Q5       = 05;
-const int XCT_TPCH_Q6       = 06;
-const int XCT_TPCH_Q7       = 07;
-const int XCT_TPCH_Q8       = 08;
-const int XCT_TPCH_Q9       = 09;
+const int XCT_TPCH_MIX      = 0;
+const int XCT_TPCH_Q1       = 1;
+const int XCT_TPCH_Q2       = 2;
+const int XCT_TPCH_Q3       = 3;
+const int XCT_TPCH_Q4       = 4;
+const int XCT_TPCH_Q5       = 5;
+const int XCT_TPCH_Q6       = 6;
+const int XCT_TPCH_Q7       = 7;
+const int XCT_TPCH_Q8       = 8;
+const int XCT_TPCH_Q9       = 9;
 const int XCT_TPCH_Q10      = 10;
 const int XCT_TPCH_Q11      = 11;
 const int XCT_TPCH_Q12      = 12;
