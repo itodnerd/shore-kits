@@ -633,7 +633,7 @@ void ShoreTPCEEnv::table_builder_t::work()
         W_COERCE(_env->db()->xct_reserve_log_space(log_space_needed));
     }
 
-    e = _env->xct_populate_small();    
+    e = _env->xct_populate_small(1, in);    
     CHECK_XCT_RETURN(e,log_space_needed,retry,_env);
     _env->release_small();
 
