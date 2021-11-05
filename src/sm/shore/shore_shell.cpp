@@ -520,7 +520,7 @@ int shore_shell_t::process_cmd_TEST(const char* command)
         selectedTrxID = tmp_selectedTrxID;
     }
     else {
-        TRACE( TRACE_ALWAYS, "Unsupported TRX\n");
+        TRACE( TRACE_ALWAYS, "Unsupported TRX %d\n", tmp_selectedTrxID);
         return (SHELL_NEXT_CONTINUE);
     }
 

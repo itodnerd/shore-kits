@@ -104,22 +104,22 @@ const int TM1_CF_NUMBERX_SZ = 15;
 /* --- TM1 TRANSACTION MIX --- */
 /* --------------------------- */
 
-const int XCT_TM1_MIX           = 20;
-const int XCT_TM1_GET_SUB_DATA  = 21;
-const int XCT_TM1_GET_NEW_DEST  = 22;
-const int XCT_TM1_GET_ACC_DATA  = 23;
-const int XCT_TM1_UPD_SUB_DATA  = 24;
-const int XCT_TM1_UPD_LOCATION  = 25;
-const int XCT_TM1_CALL_FWD_MIX  = 26;
+const int XCT_TM1_MIX           = 0;
+const int XCT_TM1_GET_SUB_DATA  = 1;
+const int XCT_TM1_GET_NEW_DEST  = 2;
+const int XCT_TM1_GET_ACC_DATA  = 3;
+const int XCT_TM1_UPD_SUB_DATA  = 4;
+const int XCT_TM1_UPD_LOCATION  = 5;
+const int XCT_TM1_CALL_FWD_MIX  = 6;
 
-const int XCT_TM1_INS_CALL_FWD  = 27;
-const int XCT_TM1_DEL_CALL_FWD  = 28;
+const int XCT_TM1_INS_CALL_FWD  = 7;
+const int XCT_TM1_DEL_CALL_FWD  = 8;
 
-const int XCT_TM1_GET_SUB_NBR   = 29;
+const int XCT_TM1_GET_SUB_NBR   = 9;
 
-const int XCT_TM1_CALL_FWD_MIX_BENCH  = 30;
-const int XCT_TM1_INS_CALL_FWD_BENCH  = 31;
-const int XCT_TM1_DEL_CALL_FWD_BENCH  = 32;
+const int XCT_TM1_CALL_FWD_MIX_BENCH  = 10;
+const int XCT_TM1_INS_CALL_FWD_BENCH  = 11;
+const int XCT_TM1_DEL_CALL_FWD_BENCH  = 12;
 
 
 

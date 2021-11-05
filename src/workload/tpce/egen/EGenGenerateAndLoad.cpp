@@ -1547,8 +1547,8 @@ void CGenerateAndLoad::ReleaseHoldingAndTrade(){
 
 bool CGenerateAndLoad::hasNextLoadUnit()
 {
-        bool x=false;
-        printf("\n\n BEFORE \n\n");
+    bool x=false;
+    printf("\n\n BEFORE \n\n");
     
 	x =pTradeGen->InitNextLoadUnit();
  	if(x)   printf("\n\nhasnext AFTER TRUE\n\n");

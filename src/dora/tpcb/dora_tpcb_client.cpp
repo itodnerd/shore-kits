@@ -35,7 +35,7 @@ ENTER_NAMESPACE(dora);
 
 
 // Look also at include/workload/tpcb/tpcb_const.h
-const int XCT_TPCB_DORA_ACCT_UPDATE   = 331;
+const int XCT_TPCB_DORA_ACCT_UPDATE   = 0;
 
 
 

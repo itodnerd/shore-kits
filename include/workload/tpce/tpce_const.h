@@ -109,19 +109,19 @@ const int SHORE_TPCE_TABLES = 33;
 
 // TPC-E Transaction IDs
 
-const int XCT_TPCE_MIX               = 70;
-const int XCT_TPCE_BROKER_VOLUME     = 71;
-const int XCT_TPCE_CUSTOMER_POSITION = 72;
-const int XCT_TPCE_MARKET_FEED       = 73;
-const int XCT_TPCE_MARKET_WATCH      = 74;
-const int XCT_TPCE_SECURITY_DETAIL   = 75;
-const int XCT_TPCE_TRADE_LOOKUP      = 76;
-const int XCT_TPCE_TRADE_ORDER       = 77;
-const int XCT_TPCE_TRADE_RESULT      = 78;
-const int XCT_TPCE_TRADE_STATUS      = 79;
-const int XCT_TPCE_TRADE_UPDATE      = 80;
-const int XCT_TPCE_DATA_MAINTENANCE  = 81;
-const int XCT_TPCE_TRADE_CLEANUP     = 82;
+const int XCT_TPCE_MIX               = 0;
+const int XCT_TPCE_BROKER_VOLUME     = 1;
+const int XCT_TPCE_CUSTOMER_POSITION = 2;
+const int XCT_TPCE_MARKET_FEED       = 3;
+const int XCT_TPCE_MARKET_WATCH      = 4;
+const int XCT_TPCE_SECURITY_DETAIL   = 5;
+const int XCT_TPCE_TRADE_LOOKUP      = 6;
+const int XCT_TPCE_TRADE_ORDER       = 7;
+const int XCT_TPCE_TRADE_RESULT      = 8;
+const int XCT_TPCE_TRADE_STATUS      = 9;
+const int XCT_TPCE_TRADE_UPDATE      = 10;
+const int XCT_TPCE_DATA_MAINTENANCE  = 11;
+const int XCT_TPCE_TRADE_CLEANUP     = 12;
 
 
 // TPC-E Transaction Probabilities

@@ -67,29 +67,29 @@ const int SHORE_SSB_TABLES = 5;
 /* --- TPC-H TRANSACTION MIX --- */
 /* ----------------------------- */
 
-const int XCT_SSB_MIX        = 80;
-const int XCT_SSB_Q1_1       = 81;
-const int XCT_SSB_Q1_2       = 82;
-const int XCT_SSB_Q1_3       = 83;
-const int XCT_SSB_Q2_1       = 84;
-const int XCT_SSB_Q2_2       = 85;
-const int XCT_SSB_Q2_3       = 86;
-const int XCT_SSB_Q3_1       = 87;
-const int XCT_SSB_Q3_2       = 88;
-const int XCT_SSB_Q3_3       = 89;
-const int XCT_SSB_Q3_4       = 90;
-const int XCT_SSB_Q4_1       = 91;
-const int XCT_SSB_Q4_2       = 92;
-const int XCT_SSB_Q4_3       = 93;
-const int XCT_SSB_QPART      = 94;
-const int XCT_SSB_QDATE      = 95;
-const int XCT_SSB_QSUPPLIER  = 96;
-const int XCT_SSB_QCUSTOMER  = 97;
-const int XCT_SSB_QLINEORDER = 98;
-const int XCT_SSB_QTEST = 99;
+const int XCT_SSB_MIX        = 0;
+const int XCT_SSB_Q1_1       = 1;
+const int XCT_SSB_Q1_2       = 2;
+const int XCT_SSB_Q1_3       = 3;
+const int XCT_SSB_Q2_1       = 4;
+const int XCT_SSB_Q2_2       = 5;
+const int XCT_SSB_Q2_3       = 6;
+const int XCT_SSB_Q3_1       = 7;
+const int XCT_SSB_Q3_2       = 8;
+const int XCT_SSB_Q3_3       = 9;
+const int XCT_SSB_Q3_4       = 10;
+const int XCT_SSB_Q4_1       = 11;
+const int XCT_SSB_Q4_2       = 12;
+const int XCT_SSB_Q4_3       = 13;
+const int XCT_SSB_QPART      = 14;
+const int XCT_SSB_QDATE      = 15;
+const int XCT_SSB_QSUPPLIER  = 16;
+const int XCT_SSB_QCUSTOMER  = 17;
+const int XCT_SSB_QLINEORDER = 18;
+const int XCT_SSB_QTEST      = 19;
 
 
-const int XCT_QPIPE_SSB_MIX      = 1080;
+const int XCT_QPIPE_SSB_MIX      = 1000;
 
 
 EXIT_NAMESPACE(ssb);

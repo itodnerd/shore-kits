@@ -34,17 +34,17 @@
 ENTER_NAMESPACE(dora);
 
 // Look also at include/workload/tpcc/tpcc_const.h
-const int XCT_DORA_MIX           = 100;
-const int XCT_DORA_NEW_ORDER     = 101;
-const int XCT_DORA_PAYMENT       = 102;
-const int XCT_DORA_ORDER_STATUS  = 103;
-const int XCT_DORA_DELIVERY      = 104;
-const int XCT_DORA_STOCK_LEVEL   = 105;
+const int XCT_DORA_MIX           = 0;
+const int XCT_DORA_NEW_ORDER     = 1;
+const int XCT_DORA_PAYMENT       = 2;
+const int XCT_DORA_ORDER_STATUS  = 3;
+const int XCT_DORA_DELIVERY      = 4;
+const int XCT_DORA_STOCK_LEVEL   = 5;
 
-const int XCT_DORA_LITTLE_MIX    = 109;
+const int XCT_DORA_LITTLE_MIX    = 9;
 
-const int XCT_DORA_MBENCH_WH   = 111;
-const int XCT_DORA_MBENCH_CUST = 112;
+const int XCT_DORA_MBENCH_WH   = 11;
+const int XCT_DORA_MBENCH_CUST = 12;
 
 
 /********************************************************************* 

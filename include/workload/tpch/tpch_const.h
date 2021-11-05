@@ -76,40 +76,40 @@ const int SHORE_TPCH_TABLES = 8;
 /* --- TPC-H TRANSACTION MIX --- */
 /* ----------------------------- */
 
-const int XCT_TPCH_MIX      = 40;
-const int XCT_TPCH_Q1       = 41;
-const int XCT_TPCH_Q2       = 42;
-const int XCT_TPCH_Q3       = 43;
-const int XCT_TPCH_Q4       = 44;
-const int XCT_TPCH_Q5       = 45;
-const int XCT_TPCH_Q6       = 46;
-const int XCT_TPCH_Q7       = 47;
-const int XCT_TPCH_Q8       = 48;
-const int XCT_TPCH_Q9       = 49;
-const int XCT_TPCH_Q10      = 50;
-const int XCT_TPCH_Q11      = 51;
-const int XCT_TPCH_Q12      = 52;
-const int XCT_TPCH_Q13      = 53;
-const int XCT_TPCH_Q14      = 54;
-const int XCT_TPCH_Q15      = 55;
-const int XCT_TPCH_Q16      = 56;
-const int XCT_TPCH_Q17      = 57;
-const int XCT_TPCH_Q18      = 58;
-const int XCT_TPCH_Q19      = 59;
-const int XCT_TPCH_Q20      = 60;
-const int XCT_TPCH_Q21      = 61;
-const int XCT_TPCH_Q22      = 62;
+const int XCT_TPCH_MIX      = 00;
+const int XCT_TPCH_Q1       = 01;
+const int XCT_TPCH_Q2       = 02;
+const int XCT_TPCH_Q3       = 03;
+const int XCT_TPCH_Q4       = 04;
+const int XCT_TPCH_Q5       = 05;
+const int XCT_TPCH_Q6       = 06;
+const int XCT_TPCH_Q7       = 07;
+const int XCT_TPCH_Q8       = 08;
+const int XCT_TPCH_Q9       = 09;
+const int XCT_TPCH_Q10      = 10;
+const int XCT_TPCH_Q11      = 11;
+const int XCT_TPCH_Q12      = 12;
+const int XCT_TPCH_Q13      = 13;
+const int XCT_TPCH_Q14      = 14;
+const int XCT_TPCH_Q15      = 15;
+const int XCT_TPCH_Q16      = 16;
+const int XCT_TPCH_Q17      = 17;
+const int XCT_TPCH_Q18      = 18;
+const int XCT_TPCH_Q19      = 19;
+const int XCT_TPCH_Q20      = 20;
+const int XCT_TPCH_Q21      = 21;
+const int XCT_TPCH_Q22      = 22;
 
-const int XCT_TPCH_QLINEITEM = 70;
-const int XCT_TPCH_QORDERS   = 71;
-const int XCT_TPCH_QREGION   = 72;
-const int XCT_TPCH_QNATION   = 73;
-const int XCT_TPCH_QSUPPLIER = 74;
-const int XCT_TPCH_QPART     = 75;
-const int XCT_TPCH_QPARTSUPP = 76;
-const int XCT_TPCH_QCUSTOMER = 77;
+const int XCT_TPCH_QLINEITEM = 30;
+const int XCT_TPCH_QORDERS   = 31;
+const int XCT_TPCH_QREGION   = 32;
+const int XCT_TPCH_QNATION   = 33;
+const int XCT_TPCH_QSUPPLIER = 34;
+const int XCT_TPCH_QPART     = 35;
+const int XCT_TPCH_QPARTSUPP = 36;
+const int XCT_TPCH_QCUSTOMER = 37;
 
-const int XCT_QPIPE_TPCH_MIX      = 1040;
+const int XCT_QPIPE_TPCH_MIX      = 1000;
 
 
 EXIT_NAMESPACE(tpch);

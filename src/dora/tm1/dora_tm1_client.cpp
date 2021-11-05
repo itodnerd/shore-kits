@@ -36,24 +36,24 @@ ENTER_NAMESPACE(dora);
 
 // Look also at include/workload/tm1/tm1_const.h
 // @note: The DORA_XXX should be (DORA_MIX + REGULAR_TRX_ID)
-const int XCT_TM1_DORA_MIX           = 200;
-const int XCT_TM1_DORA_GET_SUB_DATA  = 221;
-const int XCT_TM1_DORA_GET_NEW_DEST  = 222;
-const int XCT_TM1_DORA_GET_ACC_DATA  = 223;
-const int XCT_TM1_DORA_UPD_SUB_DATA  = 224;
-const int XCT_TM1_DORA_UPD_LOCATION  = 225;
-const int XCT_TM1_DORA_CALL_FWD_MIX  = 226;
+const int XCT_TM1_DORA_MIX           = 00;
+const int XCT_TM1_DORA_GET_SUB_DATA  = 21;
+const int XCT_TM1_DORA_GET_NEW_DEST  = 22;
+const int XCT_TM1_DORA_GET_ACC_DATA  = 23;
+const int XCT_TM1_DORA_UPD_SUB_DATA  = 24;
+const int XCT_TM1_DORA_UPD_LOCATION  = 25;
+const int XCT_TM1_DORA_CALL_FWD_MIX  = 26;
 
-const int XCT_TM1_DORA_INS_CALL_FWD  = 227;
-const int XCT_TM1_DORA_DEL_CALL_FWD  = 228;
+const int XCT_TM1_DORA_INS_CALL_FWD  = 27;
+const int XCT_TM1_DORA_DEL_CALL_FWD  = 28;
 
-const int XCT_TM1_DORA_GET_SUB_NBR   = 229;
+const int XCT_TM1_DORA_GET_SUB_NBR   = 29;
 
-const int XCT_TM1_DORA_CALL_FWD_MIX_BENCH  = 230;
-const int XCT_TM1_DORA_INS_CALL_FWD_BENCH  = 231;
-const int XCT_TM1_DORA_DEL_CALL_FWD_BENCH  = 232;
+const int XCT_TM1_DORA_CALL_FWD_MIX_BENCH  = 30;
+const int XCT_TM1_DORA_INS_CALL_FWD_BENCH  = 31;
+const int XCT_TM1_DORA_DEL_CALL_FWD_BENCH  = 32;
 
-const int XCT_TM1_DORA_UPD_SUB_DATA_MIX  = 234;
+const int XCT_TM1_DORA_UPD_SUB_DATA_MIX  = 34;
 
 /********************************************************************* 
  *
