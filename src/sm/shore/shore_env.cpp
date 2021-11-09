@@ -455,10 +455,6 @@ int ShoreEnv::init()
     }
 
     int clobber = atoi(_sys_opts[SHORE_SYS_OPTIONS[0][0]].c_str());
-    {
-        ifstream f(device);
-        clobber = clobber || !f.good();
-    }
     if (!clobber) {
 	// Cache fids at the kits side
 	W_COERCE(db()->begin_xct());
@@ -835,7 +831,10 @@ int ShoreEnv::start_sm()
     int clobber = atoi(_sys_opts[SHORE_SYS_OPTIONS[0][0]].c_str());
     {
         ifstream f(device);
-        clobber = clobber || !f.good();
+        if(!f.good()){
+            clobber = true;
+            _sys_opts[SHORE_SYS_OPTIONS[0][0]] = "1";
+        }
     }
     assert (_pssm);
     assert (strlen(device)>0);
