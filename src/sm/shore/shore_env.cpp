@@ -833,7 +833,10 @@ int ShoreEnv::start_sm()
     assert (_pssm);
     assert (strlen(device)>0);
     assert (quota>0);
-
+    {
+        ifstream f(device);
+        clobber = clobber || !f.good();
+    }
     if (clobber) {
         // if didn't clobber then the db is already loaded
         CRITICAL_SECTION(cs, _load_mutex);
@@ -841,10 +844,10 @@ int ShoreEnv::start_sm()
         TRACE( TRACE_DEBUG, "Formatting a new device (%s) with a (%d) kB quota\n",
                device, quota);
 
-	// create and mount device
-	// http://www.cs.wisc.edu/shore/1.0/man/device.ssm.html
+	    // create and mount device
+	    // http://www.cs.wisc.edu/shore/1.0/man/device.ssm.html
         ss_m::smksize_t smquota = quota;
-	W_COERCE(_pssm->format_dev(device, smquota, true));
+	    W_COERCE(_pssm->format_dev(device, smquota, true));
         TRACE( TRACE_DEBUG, "Formatting device completed...\n");
 
         // mount it...
