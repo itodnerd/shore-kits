@@ -455,6 +455,10 @@ int ShoreEnv::init()
     }
 
     int clobber = atoi(_sys_opts[SHORE_SYS_OPTIONS[0][0]].c_str());
+    {
+        ifstream f(device);
+        clobber = clobber || !f.good();
+    }
     if (!clobber) {
 	// Cache fids at the kits side
 	W_COERCE(db()->begin_xct());
@@ -829,14 +833,14 @@ int ShoreEnv::start_sm()
     char const* device =  _dev_opts[SHORE_DB_OPTIONS[0][0]].c_str();
     int quota = atoi(_dev_opts[SHORE_DB_OPTIONS[1][0]].c_str());
     int clobber = atoi(_sys_opts[SHORE_SYS_OPTIONS[0][0]].c_str());
-
-    assert (_pssm);
-    assert (strlen(device)>0);
-    assert (quota>0);
     {
         ifstream f(device);
         clobber = clobber || !f.good();
     }
+    assert (_pssm);
+    assert (strlen(device)>0);
+    assert (quota>0);
+
     if (clobber) {
         // if didn't clobber then the db is already loaded
         CRITICAL_SECTION(cs, _load_mutex);
