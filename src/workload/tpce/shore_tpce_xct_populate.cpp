@@ -1928,9 +1928,10 @@ void ShoreTPCEEnv::populate_holding()
 			 log_space_needed, retry, this);
     }
 }
-
+long populateUnitTradeIteration = 0;
 void ShoreTPCEEnv::populate_unit_trade()
 {
+    populateUnitTradeIteration = 0;
      while(tradeBuffer.hasMoreToRead()){
 	long log_space_needed = 0;
 	tradeBuffer.reset();
@@ -1939,7 +1940,7 @@ void ShoreTPCEEnv::populate_unit_trade()
 	cashTransactionBuffer.reset();
 	holdingHistoryBuffer.reset();
 	_read_trade_unit();
-	printf("\n\n Populating trade unit\n\n" );
+	printf("Populating trade unit %d of \n", populateUnitTradeIteration++, pGenerateAndLoad->totalTrades()/ loadUnit);
 	populate_unit_trade_input_t in;
     retry:
 	W_COERCE(this->db()->begin_xct());

@@ -1557,6 +1557,11 @@ bool CGenerateAndLoad::hasNextLoadUnit()
 }
 
 //TRADE
+
+long CGenerateAndLoad::totalTrades(){
+    return m_iHoursOfInitialTrades * SecondsPerHour * iDefaultLoadUnitSize/m_iScaleFactor;
+}
+
 bool CGenerateAndLoad::hasNextTrade()
 {
 	return pTradeGen->GenerateNextTrade();

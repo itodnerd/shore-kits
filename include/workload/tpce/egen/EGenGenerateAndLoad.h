@@ -526,7 +526,8 @@ public:
 	bool hasNextZipCode();
 
 	bool hasNextLoadUnit();
-	bool hasNextTrade();
+    long totalTrades();
+    bool hasNextTrade();
 	bool shouldProcessTradeRequestRow();
 	int  getTradeHistoryRowCount();
 	bool shouldProcessCashTransactionRow();
