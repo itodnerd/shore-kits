@@ -1940,7 +1940,7 @@ void ShoreTPCEEnv::populate_unit_trade()
 	cashTransactionBuffer.reset();
 	holdingHistoryBuffer.reset();
 	_read_trade_unit();
-	printf("Populating trade unit %d of \n", populateUnitTradeIteration++, pGenerateAndLoad->totalTrades()/ loadUnit);
+	printf("Populating trade unit %d of %d \n", populateUnitTradeIteration++, pGenerateAndLoad->totalTrades()/ loadUnit);
 	populate_unit_trade_input_t in;
     retry:
 	W_COERCE(this->db()->begin_xct());
